@@ -37,7 +37,8 @@
     "nodemon": "^2.0.10"
   },
   "dependencies": {
-    "moleculer-cli": "^0.7.1"
+    "moleculer-cli": "^0.7.1",
+    "mongoose": "^5.13.7"
   },
   "jest": {
     "testEnvironment": "node",

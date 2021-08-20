@@ -179,6 +179,52 @@ class MongooseDbAdapter {
 		}).exec();
 	}
 
+    /**
+     * Find an entity by query
+     *
+     * @param {Object} query
+     * @returns {Promise}
+     * @memberof MemoryDbAdapter
+     */
+	 findOneAndDelete(query) {
+        return this.model.findOneAndDelete(query).exec()
+    }
+
+    /**
+     * Find an entity by query
+     *
+     * @param {Object} query
+     * @returns {Promise}
+     * @memberof MemoryDbAdapter
+     */
+    findOneAndRemove(query) {
+        return this.model.findOneAndRemove(query).exec()
+    }
+
+    /**
+     * Find an entity by query
+     *
+     * @param {Object} query
+     * @returns {Promise}
+     * @memberof MemoryDbAdapter
+     */
+    findOneAndReplace(query) {
+        return this.model.findOneAndReplace(query).exec()
+    }
+
+    /**
+     * Find an entity by query
+     *
+     * @param {Object} query
+     * @param {Object} update
+     * @param {Object} options
+     * @param {Object} callback
+     * @returns {Promise}
+     * @memberof MemoryDbAdapter
+     */
+    findOneAndUpdate(query, update, options, callback) {
+        return this.model.findOneAndUpdate(query, update, options, callback).exec()
+    }
 	/**
 	 * Get count of filtered entites
 	 *

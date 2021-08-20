@@ -51,8 +51,13 @@ declare module "moleculer-db-adapter-mongoose" {
 
 		/**
 		 * Creates an instance of MongooseDbAdapter.
-		 */
-		constructor(uri: string, opts?: ConnectionOptions);
+		 */ 
+		constructor(
+            uri: string,
+            opts?: ConnectionOptions,
+            model?: Model<TDocument>,
+            schema?: Schema,
+        )
 		/**
 		 * Initialize adapter
 		 */
@@ -92,6 +97,28 @@ declare module "moleculer-db-adapter-mongoose" {
 		 * Find any entities by IDs
 		 */
 		findByIds(idList: any[]): Promise<TDocument[]>;
+		 /**
+         * Find one entities by query and delete
+         */
+		  findOneAndDelete(query: any): Promise<TDocument | null>
+		  /**
+		   * Find one entities by query and delete
+		   */
+		  findOneAndRemove(query: any): Promise<TDocument | null>
+		  /**
+		   * Find one entities by query and replace
+		   */
+		  findOneAndReplace(query: any): Promise<TDocument | null>
+		  /**
+		   * Find one entities by query and update
+		   */
+		  findOneAndUpdate(
+			  query: any,
+			  update: any,
+			  options: any,
+			  callback: any,
+		  ): Promise<TDocument | null>
+  
 		/**
 		 * Get count of filtered entites
 		 *
@@ -100,6 +127,7 @@ declare module "moleculer-db-adapter-mongoose" {
 		 *  - searchFields
 		 *  - query
 		 */
+		
 		count(filters?: CountFilters): Promise<number>;
 		/**
 		 * Insert an entity
